@@ -1,0 +1,219 @@
+#!/bin/bash
+
+# 🎨 Colores estilo hacker
+GREEN='\033[1;92m'
+DARKGREEN='\033[0;32m'
+BLACK='\033[0;30m'
+CYAN='\033[1;96m'
+RED='\033[1;91m'
+WHITE='\033[1;97m'
+NC='\033[0m'
+
+# 🌐 DNS cubanos
+DNS_SERVERS=("200.55.128.130" "200.55.128.140" "200.55.128.230" "200.55.128.250")
+DOMINIO="dns.madara"
+
+# 🎭 Máscara Anonymous + Nombre
+mask_anon() {
+echo -e "${CYAN}                👤 JAKUDOSHY${NC}"
+echo -e "${GREEN}"
+echo "                              "
+echo "                              "
+echo "                              "
+echo "       ⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀"
+echo "     ⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿"
+echo "    ⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟"
+echo "    ⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻"
+echo "    ⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳"
+echo "    ⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜"
+echo "   ⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡"
+echo "   ⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷"
+echo "   ⢀⢻⡿⡿⣟⣿⣻⣽⣟⣿⢯⣟⣞⡷⣿⣿⣯⢿⢽⢯⣿⣻⣟⣿⣻⣟⣿⣻"
+echo "    ⡑⡏⠯⡯⡳⡯⣗⢯⢟⡽⣗⣯⣟⣿⣿⣾⣫⢿⣽⠾⡽⣺⢳⡫⡞⡗⡝"
+echo "    ⢂⡎⠅⡃⢇⠇⠇⣃⣧⡺⡻⡳⡫⣿⡿⣟⠞⠽⠯⢧⣅⣃⠣⠱⡑⡑⠨"
+echo "    ⠐⠼⣦⢀⠄⣶⣿⢿⣿⣧⣄⡌⠂⠢⠩⠂⠑⣁⣅⣾⢿⣟⣷⠦⠄⠄⡤"
+echo "     ⠨⢻⣧⡅⡈⠛⠿⠿⠿⠛⠁⠄⢀⡀⠄⠄⠘⠻⠿⠿⠯⠓⠁⢠⣱⡿"
+echo "     ⠈⢌⢿⣷⡐⠤⣀⣀⣂⣀⢀⢀⡓⠝⡂⡀⢀⢀⢀⣀⣀⠤⢊⣼⡟"
+echo "      ⠈⢢⠚⣿⣄⠈⠉⠛⠛⠟⠿⠿⠟⠿⠻⠻⠛⠛⠉⠄⣠⠾⢑⠰⠈"
+echo "        ⠑⢌⠿⣦⡡⣱⣸⣸⣆⠄⠄⠄⣰⣕⢔⢔⠡⣼⠞⡡⠁⠁"
+echo "          ⠑⢝⢷⣕⡷⣿⡿⠄⠄⠠⣿⣯⣯⡳⡽⡋⠌⠄⠄⠄"
+echo "            ⠙⢮⣿⣽⣯⠄⠄⢨⣿⣿⡷⡫⠃⠄⠄⠄⠄⠄"
+echo "              ⠘⠙⠝⠂⠄⢘⠋⠃⠁⠄⠄⠄⠄⠄⠄⠄"
+echo -e "${NC}"
+}
+
+# ================================
+# 🟩 EFECTO MATRIX HACKER
+# ================================
+matrix_effect() {
+    clear
+    echo -e "${DARKGREEN}"
+    for i in {1..20}; do
+        line=""
+        for j in {1..60}; do
+            chars=("0" "1" "|" "/" "\\" "-" "+" "*" "#")
+            rand=${chars[$RANDOM % ${#chars[@]}]}
+            line+="$rand"
+        done
+        echo "$line"
+        sleep 0.03
+    done
+    echo -e "${NC}"
+    mask_anon
+}
+
+# ================================
+# 🟩 MENÚ DE ERROR HACKER (MODIFICADO)
+# ================================
+menu_error_dns() {
+    clear
+    echo -e "${RED}██████████████████████████████████████████${NC}"
+    echo -e "${RED}   ⚠ LO SENTIMOS ⚠${NC}"
+    echo -e "${RED}   NO SE PUDO CONECTAR A NINGÚN DNS${NC}"
+    echo -e "${RED}██████████████████████████████████████████${NC}"
+    echo ""
+    echo -e "${GREEN}1) 🔄 Reintentar conexión${NC}"
+    echo -e "${RED}2) 🚪 Salir${NC}"
+    echo ""
+    mask_anon
+    read -p "👉 Selecciona una opción: " opcion_error
+
+    case $opcion_error in
+        1) conectar_dns ;;
+        2) exit 0 ;;
+        *) echo -e "${RED}⚠ Opción inválida${NC}"; sleep 1; menu_error_dns ;;
+    esac
+}
+
+# ================================
+# 🟩 EFECTO DE CARGA HACKER
+# ================================
+barra_hacker() {
+    clear
+    echo -e "${GREEN}██████████████████████████████████████████${NC}"
+    echo -e "${GREEN}     🔓 INICIALIZANDO SISTEMA JAKUDOSHY${NC}"
+    echo -e "${GREEN}██████████████████████████████████████████${NC}"
+    echo ""
+
+    for i in $(seq 0 5 100); do
+        bar=$(printf "%0.s█" $(seq 1 $((i/5))))
+        printf "${DARKGREEN}[%-20s] ${GREEN}%3d%%${NC}\r" "$bar" "$i"
+        sleep 0.02
+    done
+    echo ""
+    mask_anon
+    sleep 0.3
+}
+
+# ================================
+# 🟩 FUNCIÓN PRINCIPAL DE CONEXIÓN (OPTIMIZADA)
+# ================================
+conectar_dns() {
+
+    DNS_OK=""
+    DNS_ID=""
+
+    index=1
+    for dns in "${DNS_SERVERS[@]}"; do
+        matrix_effect
+        echo -e "${GREEN}════════════════════════════════════════════${NC}"
+        echo -e "${GREEN}     🔍 ESCANEANDO DNS JAKUDOSHY${NC}"
+        echo -e "${GREEN}════════════════════════════════════════════${NC}"
+        echo ""
+        echo -e "${CYAN}DNS #${index}: ${WHITE}$dns${NC}"
+        echo -e "${CYAN}ID: ${WHITE}DNS-${index}${NC}"
+        echo ""
+
+        echo -e "${GREEN}📡 Probando respuesta real del DNS...${NC}"
+        sleep 0.4
+
+        # Prueba real de DNS
+        if dig @"$dns" google.com +time=1 +tries=1 >/dev/null 2>&1; then
+            DNS_OK="$dns"
+            DNS_ID="DNS-${index}"
+            break
+        else
+            echo -e "${RED}⛔ Sin respuesta.${NC}"
+            sleep 0.7
+        fi
+
+        index=$((index+1))
+    done
+
+    if [[ -z "$DNS_OK" ]]; then
+        menu_error_dns
+    fi
+
+    barra_hacker
+
+    clear
+    echo -e "${GREEN}✔ DNS JAKUDOSHY OPERATIVO${NC}"
+    echo -e "${GREEN}➤ DNS: ${WHITE}$DNS_OK${NC}"
+    echo -e "${GREEN}➤ ID:  ${WHITE}${DNS_ID}${NC}"
+    echo ""
+    echo -e "${CYAN}⏳ Iniciando Slipstream...${NC}"
+    echo ""
+    mask_anon
+
+    # Matar procesos viejos
+    pkill -f slipstream-client 2>/dev/null
+
+    # Iniciar Slipstream
+    slipstream-client \
+        --tcp-listen-port=5201 \
+        --resolver="$DNS_OK:53" \
+        --domain="$DOMINIO" \
+        --keep-alive-interval=600 \
+        --congestion-control=cubic &
+
+    SLP_PID=$!
+    sleep 2
+
+    # Verificar Slipstream
+    if ! ps -p $SLP_PID >/dev/null; then
+        echo -e "${RED}❌ Slipstream falló al iniciar.${NC}"
+        sleep 1
+        menu_error_dns
+    fi
+
+    clear
+    echo -e "${GREEN}██████████████████████████████████████████${NC}"
+    echo -e "${GREEN}   🟢 TÚNEL SLIPSTREAM JAKUDOSHY ACTIVO${NC}"
+    echo -e "${GREEN}██████████████████████████████████████████${NC}"
+    echo ""
+    echo -e "${CYAN}Conectado al DNS: ${WHITE}$DNS_OK${NC}"
+    echo -e "${CYAN}ID asignado: ${WHITE}${DNS_ID}${NC}"
+    echo ""
+    mask_anon
+    echo -e "${GREEN}Presiona Ctrl+C para cerrar el túnel.${NC}"
+
+    wait "$SLP_PID"
+}
+
+# ================================
+# 🟩 MENÚ PRINCIPAL
+# ================================
+clear
+echo -e "${GREEN}██████████████████████████████████████████${NC}"
+echo -e "${GREEN}     🟩 SISTEMA DE CONEXIÓN JAKUDOSHY${NC}"
+echo -e "${GREEN}██████████████████████████████████████████${NC}"
+echo ""
+echo -e "${CYAN}1) Conexión por Datos Móviles${NC}"
+echo -e "${CYAN}2) Conexión por WiFi${NC}"
+echo -e "${RED}3) Salir${NC}"
+echo ""
+mask_anon
+read -p "👉 Seleccione una opción: " opcion
+
+case $opcion in
+    1|2)
+        barra_hacker
+        conectar_dns
+        ;;
+    3)
+        exit 0
+        ;;
+    *)
+        echo -e "${RED}⚠ Opción inválida${NC}"
+        ;;
+esac
